@@ -14,25 +14,31 @@ class App extends React.Component {
 componentDidMount() {
   
   axios
-    .get(' http://localhost:5000/friends')
-    .then(response => {
-      console.log(response)
-    }
+    .get('http://localhost:5000/friends')
 
+    .then(res => {
+      
+      this.setState({
+        friends: res.data
+      })
+    })
     .catch(err => {
-      console.log(err);
-    }
+      console.log(err)
+    })
    
-    this.setState = {
-      friends: res
-    }
+    
 }
 
 
   render() {
     return (
+
       <div className="App">
-        <Frienlist  friends={friends}/>
+        {this.state.friends.map(mylist => (
+           <Frienlist  key={mylist.id} mylist={mylist}/>
+          
+        ))}
+        
       </div>
     );
   }
