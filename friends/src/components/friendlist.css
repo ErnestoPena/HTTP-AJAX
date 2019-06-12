@@ -1,0 +1,8 @@
+.mycard {
+    border: 1px black solid;
+    border-radius: 2px;
+    width: 20%;
+    margin: 2%;
+    text-align: left;
+    padding: 1%;
+}
